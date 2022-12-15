@@ -95,3 +95,24 @@ employee2.set_details("henry", 25)
 employee2.get_details()  # henry- 25
 
 employee1.salute()
+
+
+
+#! Special Methods (dunder methods)
+
+class Personel:
+    company = "amazon"
+
+    def __init__(self,name,age, gender = "male"):  # it is called automatically so we have to send argunments in Personel() to create an instance
+        self.name = name
+        self.age = age
+        self.gender = gender
+
+
+    def get_details(self):
+        print(f"{self.name}- {self.age} - {self.gender}")
+
+personel1 = Personel("hasan", 36)
+personel1.get_details()
+
+personel2 = Personel()  # TypeError because of args.
