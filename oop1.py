@@ -59,3 +59,17 @@ print(person2.age)
 print(person1.job)  # attribute error
 Person.job = "developer"
 print(person1.job)  # developer
+
+
+#! Class Attributes and Instance Attributes
+
+class Employee:
+    company = "Amazon"
+
+employee1 = Employee()
+employee2 = Employee()
+
+employee1.location = "Turkiye"
+employee1.company = "Tesla"
+print(employee1.company)  # Tesla
+print(employee2.company)  # Amazon
