@@ -102,11 +102,16 @@ employee1.salute()
 
 class Personel:
     company = "amazon"
+    personel_count = 0
 
     def __init__(self,name,age, gender = "male"):  # it is called automatically so we have to send argunments in Personel() to create an instance
         self.name = name
         self.age = age
         self.gender = gender
+        Personel.personel_count += 1
+
+    def __str__(self):
+        return f"{self.name}-{self.age} "
 
 
     def get_details(self):
@@ -115,4 +120,62 @@ class Personel:
 personel1 = Personel("hasan", 36)
 personel1.get_details()
 
-personel2 = Personel()  # TypeError because of args.
+# personel2 = Personel()  # TypeError because of args.
+
+personel2 = Personel("ali", 30)
+print(Personel.personel_count)
+
+print(personel1)
+print(personel2.company)  # amazon
+
+
+#! OOP PRINCIPLES (4 PILLARS)
+    #? Encapsulation
+    #? Abstraction
+    #? Inheritance
+    #? Polymorphism
+
+#? Encapsulation
+# The principle in which we determine how much of the classes, data and methods can be viewed and changed by the user.
+    # public- private -protected (not in js and python)
+    # there is not a complete encapsulation in Pyhton.
+class Personels:
+    company = "amazon"
+
+    def __init__(self,name,age, gender = "male"):  # it is called automatically so we have to send argunments in Personel() to create an instance
+        self.name = name
+        self.age = age
+        self.gender = gender
+        self._id = 5000  
+        self.__number = 200
+
+    def __str__(self):
+        return f"{self.name}-{self.age} "
+
+
+    def get_details(self):
+        print(f"{self.name}- {self.age} - {self.gender}")
+
+personels1 = Personels("hasan", 36)
+print(personels1._id)  # can be reached --5000
+print(personels1.__number)  # cannot be reached
+print(personels1._Personels__number)  # can be reached --200
+
+
+#? Abstraction
+    # Abstraction is the proess of hiding the internal complex details of an application from the outer world.
+
+liste = [2,3,5,1,4]
+liste.sort()
+print(liste)
+
+# class Update(models.Model):
+#     updated = models.DateTimeField("auto_now_true")
+
+#     class Meta:
+#         abstract = True
+
+# class Question(Update):
+#     pass
+# class Answer(Update):
+#     pass
