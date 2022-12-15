@@ -66,6 +66,17 @@ print(person1.job)  # developer
 class Employee:
     company = "Amazon"
 
+    def set_details(self, name, age):
+        self.name = name
+        self.age = age
+
+    def get_details(self):
+        print(f"{self.name}- {self.age}")
+
+    @staticmethod  # static methods(no parameter)
+    def salute():
+        print("hi there")
+
 employee1 = Employee()
 employee2 = Employee()
 
@@ -73,3 +84,14 @@ employee1.location = "Turkiye"
 employee1.company = "Tesla"
 print(employee1.company)  # Tesla
 print(employee2.company)  # Amazon
+print(employee2.location)  # Attribute error
+print(employee1.location)  # Turkiye
+
+employee1.name = "victor"
+employee1.age = 33
+employee1.get_details()  # victor- 33
+
+employee2.set_details("henry", 25)
+employee2.get_details()  # henry- 25
+
+employee1.salute()
