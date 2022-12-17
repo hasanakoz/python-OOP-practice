@@ -179,3 +179,57 @@ print(liste)
 #     pass
 # class Answer(Update):
 #     pass
+
+
+
+#? Inheritance
+# Inheritance is the procedure in which one class inherits the attributes and methods of another class. The class whose properties and methods are inherited is known as the Parent class.
+#? Multiple Inheritance
+
+class Inheritance:
+    company = "google"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def __str__(self):
+        return f"{self.name} "
+
+    def get_details(self):
+        print(self.name, self.age)
+
+class Lang:
+    def __init__(self, langs):
+        self.langs = langs
+
+    def display_langs(self):
+        print(self.langs)
+
+class Child(Inheritance, Lang):
+    def __init__(self, path, age, name, langs):
+        super().__init__(name,age)
+        self.path = path
+        Lang.__init__(self, langs)
+        # self.name = name
+        # self.age = age
+
+        #!  super() komutu, inherit edilen İLK parent classı temsil eder.
+
+        #! super() kullanınca self parametresine gerek kalmaz ve ilk parenti temsil ettiğimizi belirtir.
+        
+
+    def get_details(self):
+        super().get_details()
+        print(self.path)
+
+#?Polymorphism
+#* Overriding
+# Overriding is an object-oriented programming feature that enables a child class to provide different implementation for a method that is already defined and/or implemented in it's parent class or one of it's parent classes.
+
+child1 = Child("barry", "20", "fs", "js")
+child1.get_details() 
+print(child1.company) # google
+child1.display_langs()
+
+#* Overloading
+# Two or more methods have the same name but different numbers of parameters or different types of parameters, or both. These methods are called overloaded methods and this is called method overloading. #! The concept of overloading simply does not apply to python(give parameters None default value - or - multipledispatch package)
